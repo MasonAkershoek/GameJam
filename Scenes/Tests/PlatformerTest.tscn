@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://dc5ch21ml1dpl"]
 
+[ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/GameCam.tscn" id="1_aghax"]
 [ext_resource type="Texture2D" uid="uid://coq05wic0b25b" path="res://Graphics/Background/Blue.png" id="1_nevyw"]
-[ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_t8b0m"]
 [ext_resource type="Texture2D" uid="uid://c7vbd04hksom" path="res://Graphics/Terrain/Terrain (16x16).png" id="2_hhhsj"]
 [ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/player.tscn" id="3_g7sy7"]
 [ext_resource type="PackedScene" uid="uid://b3bwy3p42fcd3" path="res://Scenes/angry_pig.tscn" id="4_3r2uk"]
@@ -248,15 +248,11 @@ terrain_set_0/terrain_0/color = Color(0.675, 0.172489, 0.186284, 1)
 sources/0 = SubResource("TileSetAtlasSource_mr8jh")
 
 [node name="LV1" type="Node2D"]
+position = Vector2(2, 0)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("Player")]
-position = Vector2(36, 349)
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_bottom = 416
-position_smoothing_enabled = true
-script = ExtResource("1_t8b0m")
+[node name="Camera2D" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("1_aghax")]
+zoom = Vector2(1, 1)
+process_callback = 0
 Player = NodePath("../Player")
 
 [node name="TextureRect" type="TextureRect" parent="."]

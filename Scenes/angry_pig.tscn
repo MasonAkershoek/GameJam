@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://b3bwy3p42fcd3"]
 
 [ext_resource type="Texture2D" uid="uid://cq5xe67uj08gy" path="res://Graphics/Enemies/AngryPig/Idle (36x30).png" id="1_u757i"]
-[ext_resource type="Script" path="res://Scenes/angry_pig.gd" id="1_w26ss"]
+[ext_resource type="Script" path="res://Scripts/angry_pig.gd" id="1_w26ss"]
 [ext_resource type="Texture2D" uid="uid://bwqhksofdj04l" path="res://Graphics/Enemies/AngryPig/Run (36x30).png" id="2_xgyr2"]
 [ext_resource type="Texture2D" uid="uid://bc1y0dnvifair" path="res://Graphics/Enemies/AngryPig/Walk (36x30).png" id="3_80ms2"]
 

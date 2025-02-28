@@ -50,19 +50,21 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _process(delta: float) -> void:
-	if State == SPAWN:
-		if not mySprite.is_playing():
-			mySprite.play("Idle")
-			State = IDLE
-	elif State == DIE:
+	#if State == SPAWN:
+		#if not mySprite.is_playing():
+			#mySprite.play("Idle")
+			#State = IDLE
+	if State == DIE:
 		if not mySprite.is_playing():
 			queue_free()
 	elif is_hit:
 		pass
 	elif not is_on_floor() && velocity.y < 0:
-		mySprite.play("Jump")
+		pass
+		#mySprite.play("Jump")
 	elif not is_on_floor() && velocity.y > 0:
-		mySprite.play("Fall")
+		pass
+		#mySprite.play("Fall")
 	elif abs(velocity.x) > 0:
 		mySprite.play("Run")
 	else:
@@ -79,10 +81,10 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 		HP -= 1
 		if HP < 1:
 			State = DIE
-			mySprite.play("Die")
+			#mySprite.play("Die")
 		else:
 			is_hit = true
-			mySprite.play("Hit")
+			#mySprite.play("Hit")
 		
 
 
