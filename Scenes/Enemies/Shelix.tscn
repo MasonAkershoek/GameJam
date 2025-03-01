@@ -44,6 +44,7 @@ size = Vector2(23, 18)
 size = Vector2(23, 4)
 
 [node name="Shelix" type="CharacterBody2D" groups=["Enemy"]]
+position = Vector2(-2, -16)
 collision_layer = 9
 script = ExtResource("1_egghn")
 SPEED = 50

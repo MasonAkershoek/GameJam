@@ -44,6 +44,7 @@ size = Vector2(23, 18)
 size = Vector2(23, 4)
 
 [node name="Helix" type="CharacterBody2D" groups=["Enemy"]]
+position = Vector2(-1, -16)
 collision_layer = 9
 script = ExtResource("1_1i54f")
 SPEED = 50

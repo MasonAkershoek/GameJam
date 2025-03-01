@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c05xam0s7hh5q"
-path="res://.godot/imported/unglunked.png-341536d0d878bd435e59d93757218ddd.ctex"
+path="res://.godot/imported/unglunked.png-5b4271a9c431c46cc41540f1013914aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://unglunked.png"
-dest_files=["res://.godot/imported/unglunked.png-341536d0d878bd435e59d93757218ddd.ctex"]
+source_file="res://Graphics/Player/unglunked.png"
+dest_files=["res://.godot/imported/unglunked.png-5b4271a9c431c46cc41540f1013914aa.ctex"]
 
 [params]
 

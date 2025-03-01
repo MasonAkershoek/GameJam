@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dx3dhdfcswkq"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="5_vt3rr"]
-[ext_resource type="Texture2D" uid="uid://c05xam0s7hh5q" path="res://unglunked.png" id="6_tlr6s"]
+[ext_resource type="Texture2D" uid="uid://c05xam0s7hh5q" path="res://Graphics/Player/unglunked.png" id="6_tlr6s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfi0f"]
 atlas = ExtResource("6_tlr6s")
@@ -57,6 +57,7 @@ font_size = 10
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("5_vt3rr")
+MAX_SPEED = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)

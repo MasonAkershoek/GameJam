@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dc5ch21ml1dpl"]
+[gd_scene load_steps=9 format=4 uid="uid://dc5ch21ml1dpl"]
 
 [ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/GameCam.tscn" id="1_aghax"]
 [ext_resource type="Texture2D" uid="uid://c7vbd04hksom" path="res://Graphics/Terrain/Terrain (16x16).png" id="2_hhhsj"]
 [ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/player.tscn" id="3_g7sy7"]
 [ext_resource type="PackedScene" uid="uid://b3bwy3p42fcd3" path="res://Scenes/Enemies/Shelix.tscn" id="4_3r2uk"]
 [ext_resource type="PackedScene" uid="uid://2v4eda5xsm30" path="res://Scenes/Enemies/Helix.tscn" id="4_lv1sn"]
+[ext_resource type="PackedScene" uid="uid://dqwtd677kghnm" path="res://Scenes/dog.tscn" id="6_cyxe1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mr8jh"]
 texture = ExtResource("2_hhhsj")
@@ -266,12 +267,15 @@ tile_set = SubResource("TileSet_h7edc")
 
 [node name="Player" parent="." instance=ExtResource("3_g7sy7")]
 position = Vector2(36, 352)
-SPEED = 200.0
 
 [node name="Enemys" type="Node2D" parent="."]
 position = Vector2(273, 354)
 
 [node name="Helix" parent="Enemys" instance=ExtResource("4_lv1sn")]
+position = Vector2(0, -2)
 
 [node name="Shelix" parent="Enemys" instance=ExtResource("4_3r2uk")]
 position = Vector2(106, -2)
+
+[node name="Dog" parent="." instance=ExtResource("6_cyxe1")]
+position = Vector2(90, 352)

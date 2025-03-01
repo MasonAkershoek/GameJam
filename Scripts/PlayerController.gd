@@ -4,10 +4,12 @@ enum {SPAWN, JUMPING, RUNNING, IDLE, DIE}
 
 var State = SPAWN
 
-@export var SPEED = 300.0
+@export var MAX_SPEED = 300.0
+@export var ACCELERATION: float = 10.0
 @export var JUMP_VELOCITY = -400.0
 @export var HP = 3
-@export var Knockback = 200
+@export var KNOCKBACK = 300
+@export var USE_ACCELERATION = true
 
 @onready var text: Label = $Label
 @onready var mySprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -18,6 +20,8 @@ var direction = 0
 
 func _ready() -> void:
 	mySprite.play("Spawn")
+	if not USE_ACCELERATION:
+		ACCELERATION = MAX_SPEED
 
 func _physics_process(delta: float) -> void:
 	text.text = str(HP)
@@ -30,21 +34,23 @@ func _physics_process(delta: float) -> void:
 		bounce = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_hit:
+	if Input.is_action_just_pressed("Jump")  and is_on_floor() and not is_hit:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var dir := Input.get_axis("ui_left", "ui_right")
+	var dir := Input.get_axis("MoveLeft", "MoveRight")
 	if dir && not is_hit:
-		velocity.x = dir * SPEED
+		print("Acceleration:" + str(ACCELERATION))
+		print("Velocity: " + str(velocity.x))
+		velocity.x = move_toward(velocity.x, dir*MAX_SPEED, ACCELERATION)
 		direction = dir
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, abs(direction)*ACCELERATION)
 		
 	if is_hit:
 		is_hit = false
-		velocity.x = (-direction) * Knockback
+		velocity.x = (-direction) * KNOCKBACK
 
 	move_and_slide()
 	
