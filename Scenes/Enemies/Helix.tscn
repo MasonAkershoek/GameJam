@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://2v4eda5xsm30"]
+
+[ext_resource type="Script" path="res://Scripts/angry_pig.gd" id="1_1i54f"]
+[ext_resource type="Texture2D" uid="uid://dbmh20mqhmwxk" path="res://Graphics/Enemies/Helix.png" id="2_3yuu7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg4cy"]
+atlas = ExtResource("2_3yuu7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h6li"]
+atlas = ExtResource("2_3yuu7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw5ph"]
+atlas = ExtResource("2_3yuu7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwtqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg4cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h6li")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw5ph")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy3bc"]
+size = Vector2(23, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuswm"]
+size = Vector2(23, 4)
+
+[node name="Helix" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 9
+script = ExtResource("1_1i54f")
+SPEED = 50
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bwtqx")
+animation = &"Idle"
+frame_progress = 0.450655
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 7)
+shape = SubResource("RectangleShape2D_jy3bc")
+
+[node name="Hit Box" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit Box"]
+position = Vector2(2.5, -6)
+shape = SubResource("RectangleShape2D_cuswm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="Hit Box" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
