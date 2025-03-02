@@ -9,7 +9,7 @@ position = Vector2(1073, 902)
 
 [node name="Planet" parent="." instance=ExtResource("3_oi4x4")]
 inertia = 39.81
-GRAVITY = 500
+GRAVITY = 2000
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("1_aghax")]
 position = Vector2(0, -516)
