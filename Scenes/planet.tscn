@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://domjeaeiybifl"]
+
+[ext_resource type="Script" path="res://Scripts/planet.gd" id="1_cm1uo"]
+[ext_resource type="Texture2D" uid="uid://dfwdyrbiruhkh" path="res://world.png" id="1_pw8ej"]
+[ext_resource type="PackedScene" uid="uid://dqwtd677kghnm" path="res://Scenes/dog.tscn" id="3_jobud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttkap"]
+radius = 1054.04
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opbuc"]
+radius = 501.001
+
+[node name="RigidBody2D" type="RigidBody2D"]
+freeze = true
+script = ExtResource("1_cm1uo")
+
+[node name="Gravity" type="Area2D" parent="."]
+disable_mode = 1
+gravity_space_override = 3
+gravity_point = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity"]
+shape = SubResource("CircleShape2D_ttkap")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pw8ej")
+
+[node name="Ground" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_opbuc")
+
+[node name="Dog" parent="." instance=ExtResource("3_jobud")]
+position = Vector2(-142, 496)
+rotation = 3.42783

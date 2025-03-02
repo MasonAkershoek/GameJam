@@ -2,12 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_hw70m"]
 
-[node name="Camera2D" type="Camera2D" node_paths=PackedStringArray("Player")]
+[node name="Camera2D" type="Camera2D"]
 position = Vector2(36, 349)
 zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_bottom = 416
-position_smoothing_enabled = true
 script = ExtResource("1_hw70m")
-Player = NodePath("")
