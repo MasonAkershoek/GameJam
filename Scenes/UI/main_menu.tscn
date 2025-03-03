@@ -1,69 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfwetfl6a3lc2"]
+[gd_scene load_steps=4 format=3 uid="uid://bfwetfl6a3lc2"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_n1cj4"]
-font_size = 50
+[ext_resource type="PackedScene" uid="uid://domjeaeiybifl" path="res://Scenes/planet.tscn" id="1_3c3m3"]
+[ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/player.tscn" id="2_u52af"]
+[ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/GameCam.tscn" id="3_get7v"]
 
-[node name="Main Menu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Main Menu" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Planet" parent="." instance=ExtResource("1_3c3m3")]
+position = Vector2(560, 296)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.236606, 3.34268e-05, 0.232305, 1)
+[node name="Player" parent="." node_paths=PackedStringArray("WORLD") instance=ExtResource("2_u52af")]
+position = Vector2(560, -224)
+MAX_SPEED = 0.005
+WORLD = NodePath("../Planet")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.086
-anchor_right = 1.0
-anchor_bottom = 0.185
-offset_top = 0.271999
-offset_bottom = 0.119995
-grow_horizontal = 2
-text = "Jerumy's Journy
-"
-label_settings = SubResource("LabelSettings_n1cj4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play!"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-text = "Made by: Mason, Noah, Shae"
+[node name="Camera2D" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("3_get7v")]
+position = Vector2(570, -244)
+Player = NodePath("../Player")

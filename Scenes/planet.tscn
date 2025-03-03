@@ -1,16 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://domjeaeiybifl"]
+[gd_scene load_steps=5 format=3 uid="uid://domjeaeiybifl"]
 
 [ext_resource type="Script" path="res://Scripts/planet.gd" id="1_cm1uo"]
 [ext_resource type="Texture2D" uid="uid://dfwdyrbiruhkh" path="res://world.png" id="1_pw8ej"]
-[ext_resource type="PackedScene" uid="uid://dqwtd677kghnm" path="res://Scenes/dog.tscn" id="3_jobud"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttkap"]
 radius = 1054.04
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opbuc"]
-radius = 501.001
+radius = 500.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Planet" type="RigidBody2D"]
 freeze = true
 script = ExtResource("1_cm1uo")
 
@@ -38,7 +37,3 @@ texture = ExtResource("1_pw8ej")
 
 [node name="Ground" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_opbuc")
-
-[node name="Dog" parent="." instance=ExtResource("3_jobud")]
-position = Vector2(-142, 496)
-rotation = 3.42783
