@@ -9,7 +9,7 @@ radius = 1054.04
 [sub_resource type="CircleShape2D" id="CircleShape2D_opbuc"]
 radius = 500.0
 
-[node name="Planet" type="RigidBody2D"]
+[node name="Planet" type="RigidBody2D" groups=["Planet"]]
 freeze = true
 script = ExtResource("1_cm1uo")
 
@@ -17,11 +17,14 @@ script = ExtResource("1_cm1uo")
 disable_mode = 1
 gravity_space_override = 3
 gravity_point = true
+linear_damp_space_override = 3
+angular_damp_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity"]
 shape = SubResource("CircleShape2D_ttkap")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

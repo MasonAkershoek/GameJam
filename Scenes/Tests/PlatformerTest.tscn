@@ -1,26 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc5ch21ml1dpl"]
+[gd_scene load_steps=6 format=3 uid="uid://dc5ch21ml1dpl"]
 
 [ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/GameCam.tscn" id="1_aghax"]
+[ext_resource type="Texture2D" uid="uid://bfwh5x02hgii3" path="res://Graphics/jerumy home.png" id="1_pw6lq"]
 [ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/player.tscn" id="3_g7sy7"]
 [ext_resource type="PackedScene" uid="uid://domjeaeiybifl" path="res://Scenes/planet.tscn" id="3_oi4x4"]
 [ext_resource type="PackedScene" uid="uid://dqwtd677kghnm" path="res://Scenes/dog.tscn" id="4_5kowg"]
 
 [node name="LV1" type="Node2D"]
-position = Vector2(1073, 902)
+position = Vector2(685, 556)
 
 [node name="Planet" parent="." instance=ExtResource("3_oi4x4")]
 inertia = 39.81
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("1_aghax")]
-position = Vector2(-1, -516)
-zoom = Vector2(0.5, 0.5)
-Player = NodePath("../Player")
+[node name="JerumyHome" type="Sprite2D" parent="Planet"]
+position = Vector2(2, -529)
+texture = ExtResource("1_pw6lq")
 
 [node name="Player" parent="." node_paths=PackedStringArray("WORLD") instance=ExtResource("3_g7sy7")]
-position = Vector2(-2, -516)
-MAX_SPEED = 0.004
+position = Vector2(2, -516)
+MAX_SPEED = 0.005
 WORLD = NodePath("../Planet")
 
-[node name="Dog" parent="." instance=ExtResource("4_5kowg")]
-position = Vector2(-206, 474)
-rotation = 3.55349
+[node name="Dog" parent="." node_paths=PackedStringArray("PLANET") instance=ExtResource("4_5kowg")]
+position = Vector2(516, 7)
+rotation = 1.5708
+scale = Vector2(1, 1)
+SPEED = 1000.0
+PLANET = NodePath("../Planet")
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("1_aghax")]
+position = Vector2(2, -516)
+Player = NodePath("../Player")

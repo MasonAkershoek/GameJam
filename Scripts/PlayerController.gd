@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	text.text = str(HP)
 	# Add the gravity.
 	if not is_on_floor():
+		print("GG")
 		velocity += get_gravity() * delta
 
 	# Handle jump.
