@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
-
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var PLANET = Node2D
+
+@onready var mySprite = $AnimatedSprite2D
 
 var parent = Node2D
 
 func _ready() -> void:
 	parent = get_parent()
+	mySprite.play("Lick")
 
 func _physics_process(delta: float) -> void:
 	# Get direction towards the planet center

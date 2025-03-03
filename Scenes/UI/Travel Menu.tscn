@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4f0g6kmwm021"]
+
+[ext_resource type="Texture2D" uid="uid://c06njip4kdbyo" path="res://world.png" id="1_qcyvn"]
+[ext_resource type="Texture2D" uid="uid://cq88ibe3qq5q8" path="res://arrow.png" id="2_866or"]
+
+[node name="TravelMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.5
+offset_top = -76.5
+offset_right = 574.5
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Home" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../World 3")
+focus_neighbor_right = NodePath("../World 1")
+texture = ExtResource("1_qcyvn")
+expand_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_866or")
+stretch_mode = 3
+
+[node name="World 1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Home")
+focus_neighbor_right = NodePath("../World 2")
+texture = ExtResource("1_qcyvn")
+expand_mode = 2
+
+[node name="Arrow2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_866or")
+stretch_mode = 3
+
+[node name="World 2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../World 1")
+focus_neighbor_right = NodePath("../World 3")
+texture = ExtResource("1_qcyvn")
+expand_mode = 2
+
+[node name="Arrow3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_866or")
+stretch_mode = 3
+
+[node name="World 3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../World 2")
+focus_neighbor_right = NodePath("../Home")
+texture = ExtResource("1_qcyvn")
+expand_mode = 2

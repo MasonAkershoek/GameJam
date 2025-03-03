@@ -1,33 +1,31 @@
 extends CharacterBody2D
 
-enum {SPAWN, JUMPING, RUNNING, IDLE, DIE}
+enum {JUMPING, RUNNING, IDLE, DIE}
 
-var State = SPAWN
+var State = IDLE
 
-@export var MAX_SPEED = 300.0
-@export var ACCELERATION: float = 10.0
+@export var MAX_SPEED = 0.005
+@export var GUNKED_SPEED = 200.0
+@export var ACCELERATION: float = 0.0005
 @export var JUMP_VELOCITY = -400.0
 @export var HP = 3
 @export var KNOCKBACK = 300
 @export var USE_ACCELERATION = true
-@export var GRAVITY = 9.8
 @export var WORLD = RigidBody2D
 
 @onready var text: Label = $Label
 @onready var mySprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var direction = 0
+var movment = 0
 
 func _ready() -> void:
-	mySprite.play("Spawn")
+	mySprite.play("Idle")
 	if not USE_ACCELERATION:
 		ACCELERATION = MAX_SPEED
 
 func _physics_process(delta: float) -> void:
-	text.text = str(HP)
 	# Add the gravity.
 	if not is_on_floor():
-		print("GG")
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -38,18 +36,17 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var dir := Input.get_axis("MoveLeft", "MoveRight")
 	if dir:
-		WORLD.rotation += -dir * MAX_SPEED
-		#print("Acceleration:" + str(ACCELERATION))
-		#print("Velocity: " + str(velocity.x))
-		#velocity.x = move_toward(velocity.x, dir*MAX_SPEED, ACCELERATION)
-		#direction = dir
+		movment = move_toward(movment, -dir*MAX_SPEED, ACCELERATION)
+		WORLD.rotation += movment 
 	else:
-		pass
-		#velocity.x = move_toward(velocity.x, 0, abs(direction)*ACCELERATION)
+		movment = move_toward(movment, 0, ACCELERATION)
+		WORLD.rotation += movment
 
 	move_and_slide()
 	
 func _process(delta: float) -> void:
+	text.text = str(HP)
+	
 	var dir := Input.get_axis("MoveLeft", "MoveRight")
 	if dir != 0:
 		mySprite.play("Run")
