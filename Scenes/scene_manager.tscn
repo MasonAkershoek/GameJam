@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj6d7c6s8tu7f"]
+
+[ext_resource type="Script" path="res://Scripts/Scene_Manager.gd" id="1_f5b5y"]
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_f5b5y")
+Scenes = {
+"HomeWorld": "res://Scenes/Levels/LV1.tscn",
+"TravelMenu": "res://Scenes/UI/Travel Menu.tscn"
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dc5ch21ml1dpl"]
+[gd_scene load_steps=17 format=3 uid="uid://dc5ch21ml1dpl"]
 
 [ext_resource type="Script" path="res://Scripts/Home.gd" id="1_1unq7"]
 [ext_resource type="Texture2D" uid="uid://3ooxr3q6m3iq" path="res://backgroundTile.png" id="1_42gtg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://domjeaeiybifl" path="res://Scenes/planet.tscn" id="3_oi4x4"]
 [ext_resource type="PackedScene" uid="uid://dqwtd677kghnm" path="res://Scenes/dog.tscn" id="4_5kowg"]
 [ext_resource type="Texture2D" uid="uid://ulbpqnu078e" path="res://Graphics/Ship.png" id="5_vpsyn"]
+[ext_resource type="PackedScene" uid="uid://bv43ilgetnxsx" path="res://Scenes/scene_transition.tscn" id="9_87cil"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pafy0"]
 atlas = ExtResource("5_vpsyn")
@@ -65,53 +66,66 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwo74"]
 size = Vector2(59.4289, 45.8271)
 
-[node name="LV1" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LV1" type="Node2D" parent="."]
 position = Vector2(-1, 0)
 script = ExtResource("1_1unq7")
 
-[node name="Space" type="TextureRect" parent="."]
+[node name="Space" type="TextureRect" parent="LV1"]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_42gtg")
 stretch_mode = 1
 
-[node name="Planet" parent="." instance=ExtResource("3_oi4x4")]
+[node name="Planet" parent="LV1" instance=ExtResource("3_oi4x4")]
 position = Vector2(582, 760)
 inertia = 39.81
 
-[node name="JerumyHome" type="Sprite2D" parent="Planet"]
+[node name="JerumyHome" type="Sprite2D" parent="LV1/Planet"]
 position = Vector2(2, -529)
 texture = ExtResource("1_pw6lq")
 
-[node name="Ship" type="AnimatedSprite2D" parent="Planet"]
+[node name="Ship" type="AnimatedSprite2D" parent="LV1/Planet"]
 position = Vector2(129, -515)
 rotation = 0.23911
 sprite_frames = SubResource("SpriteFrames_ap2y6")
 animation = &"Empty"
 frame_progress = 0.724556
 
-[node name="Area2D" type="Area2D" parent="Planet/Ship"]
+[node name="Area2D" type="Area2D" parent="LV1/Planet/Ship"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet/Ship/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LV1/Planet/Ship/Area2D"]
 position = Vector2(0.0460205, 7.62978)
 shape = SubResource("RectangleShape2D_mwo74")
 
-[node name="Player" parent="." node_paths=PackedStringArray("WORLD") instance=ExtResource("3_g7sy7")]
+[node name="Player" parent="LV1" node_paths=PackedStringArray("WORLD") instance=ExtResource("3_g7sy7")]
 position = Vector2(584, 244)
 MAX_SPEED = 0.005
 GUNKED_SPEED = 0.003
 ACCELERATION = 0.001
 WORLD = NodePath("../Planet")
 
-[node name="Dog" parent="." node_paths=PackedStringArray("PLANET") instance=ExtResource("4_5kowg")]
+[node name="Dog" parent="LV1" node_paths=PackedStringArray("PLANET") instance=ExtResource("4_5kowg")]
 position = Vector2(1098, 767)
 rotation = 1.5708
 SPEED = 1000.0
 PLANET = NodePath("../Planet")
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("1_aghax")]
+[node name="Camera2D" parent="LV1" node_paths=PackedStringArray("Player") instance=ExtResource("1_aghax")]
 position = Vector2(584, 244)
 Player = NodePath("../Player")
 
-[connection signal="body_entered" from="Planet/Ship/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Planet/Ship/Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="SceneTransition" parent="." instance=ExtResource("9_87cil")]
+layout_mode = 1
+offset_left = -1.0
+offset_right = -1.0
+
+[connection signal="body_entered" from="LV1/Planet/Ship/Area2D" to="LV1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="LV1/Planet/Ship/Area2D" to="LV1" method="_on_area_2d_body_exited"]

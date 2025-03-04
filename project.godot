@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Game Jam"
-run/main_scene="res://Scenes/Tests/PlatformerTest.tscn"
+run/main_scene="res://Scenes/Levels/LV1.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://Scenes/scene_manager.tscn"
 
 [global_group]
 
