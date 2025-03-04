@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://domjeaeiybifl"]
 
 [ext_resource type="Script" path="res://Scripts/planet.gd" id="1_cm1uo"]
-[ext_resource type="Texture2D" uid="uid://c06njip4kdbyo" path="res://World.png" id="2_dvv68"]
+[ext_resource type="Texture2D" uid="uid://c06njip4kdbyo" path="res://world.png" id="2_dvv68"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttkap"]
 radius = 1054.04
