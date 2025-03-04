@@ -7,6 +7,8 @@ extends RigidBody2D
 
 var Radius = 0.0
 
+var Movment = 0.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

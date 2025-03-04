@@ -1,7 +1,103 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4f0g6kmwm021"]
+[gd_scene load_steps=16 format=3 uid="uid://b4f0g6kmwm021"]
 
+[ext_resource type="Script" path="res://Scripts/travel_menu.gd" id="1_qb15q"]
 [ext_resource type="Texture2D" uid="uid://c06njip4kdbyo" path="res://world.png" id="1_qcyvn"]
-[ext_resource type="Texture2D" uid="uid://cq88ibe3qq5q8" path="res://arrow.png" id="2_866or"]
+[ext_resource type="Texture2D" uid="uid://3ooxr3q6m3iq" path="res://Graphics/backgroundTile.png" id="2_2vsle"]
+[ext_resource type="Texture2D" uid="uid://cq88ibe3qq5q8" path="res://Graphics/arrow.png" id="2_866or"]
+[ext_resource type="Texture2D" uid="uid://ulbpqnu078e" path="res://Graphics/Ship.png" id="4_ujggb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pafy0"]
+atlas = ExtResource("4_ujggb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8idi"]
+atlas = ExtResource("4_ujggb")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8de24"]
+atlas = ExtResource("4_ujggb")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aca6n"]
+atlas = ExtResource("4_ujggb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sshg7"]
+atlas = ExtResource("4_ujggb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lc1vi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pafy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8idi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8de24")
+}],
+"loop": true,
+"name": &"Broke",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aca6n")
+}],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sshg7")
+}],
+"loop": true,
+"name": &"Pilot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8srfm"]
+size = Vector2(59.4289, 45.8271)
+
+[sub_resource type="Animation" id="Animation_bvg3p"]
+resource_name = "1To2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1.31951, 1),
+"update": 0,
+"values": [Vector2(296, 320), Vector2(408, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_tqltx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, 232)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhvan"]
+_data = {
+"1To2": SubResource("Animation_bvg3p"),
+"RESET": SubResource("Animation_tqltx")
+}
 
 [node name="TravelMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +106,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qb15q")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2vsle")
+stretch_mode = 1
+
+[node name="Ship" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(288, 232)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_lc1vi")
+animation = &"Pilot"
+
+[node name="Area2D" type="Area2D" parent="Ship"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D"]
+position = Vector2(0.0460205, 7.62978)
+shape = SubResource("RectangleShape2D_8srfm")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -27,6 +147,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Home" type="TextureRect" parent="HBoxContainer"]
+z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../World 3")
 focus_neighbor_right = NodePath("../World 1")
@@ -39,6 +160,7 @@ texture = ExtResource("2_866or")
 stretch_mode = 3
 
 [node name="World 1" type="TextureRect" parent="HBoxContainer"]
+z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../Home")
 focus_neighbor_right = NodePath("../World 2")
@@ -51,6 +173,7 @@ texture = ExtResource("2_866or")
 stretch_mode = 3
 
 [node name="World 2" type="TextureRect" parent="HBoxContainer"]
+z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../World 1")
 focus_neighbor_right = NodePath("../World 3")
@@ -63,8 +186,14 @@ texture = ExtResource("2_866or")
 stretch_mode = 3
 
 [node name="World 3" type="TextureRect" parent="HBoxContainer"]
+z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../World 2")
 focus_neighbor_right = NodePath("../Home")
 texture = ExtResource("1_qcyvn")
 expand_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nhvan")
+}

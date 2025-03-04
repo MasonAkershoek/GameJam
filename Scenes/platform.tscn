@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceqync4fovyct"]
+
+[ext_resource type="Texture2D" uid="uid://b6svlcvklwgbo" path="res://Graphics/platfo.png" id="1_kciwm"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+freeze = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1.6, 4.8)
+polygon = PackedVector2Array(64, -8, 41.6, -8, 17.6, -8, -6.4, -4.8, -54.4, 3.2, -64, 5, -64, 8, -38.2, 8, -13, 3.7, -13, 2.8, 29.2, -1, 64, -1)
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(-1.6, 4.8)
+texture = ExtResource("1_kciwm")

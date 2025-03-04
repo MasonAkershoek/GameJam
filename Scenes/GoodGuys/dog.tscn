@@ -84,6 +84,7 @@ height = 18.0
 [sub_resource type="Curve2D" id="Curve2D_7r733"]
 
 [node name="Dog" type="CharacterBody2D"]
+top_level = true
 script = ExtResource("1_dmx4s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

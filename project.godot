@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://Scenes/scene_manager.tscn"
+Global="*res://Scripts/Global.gd"
+TextBox="*res://Scenes/text_box.tscn"
 
 [global_group]
 

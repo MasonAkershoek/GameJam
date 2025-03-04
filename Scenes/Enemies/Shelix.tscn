@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3bwy3p42fcd3"]
+[gd_scene load_steps=10 format=3 uid="uid://b3bwy3p42fcd3"]
 
 [ext_resource type="Script" path="res://Scripts/angry_pig.gd" id="1_egghn"]
 [ext_resource type="Texture2D" uid="uid://b57pv5x7vupgf" path="res://Graphics/Enemies/Shelix.png" id="2_jeblr"]
@@ -6,6 +6,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hn2n"]
 atlas = ExtResource("2_jeblr")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ifec"]
+atlas = ExtResource("2_jeblr")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kclf8"]
 atlas = ExtResource("2_jeblr")
@@ -23,6 +27,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ifec")
+}],
+"loop": true,
+"name": &"In Shell",
 "speed": 5.0
 }, {
 "frames": [{
@@ -51,8 +63,7 @@ SPEED = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bwtqx")
-animation = &"Walk"
-frame_progress = 0.43903
+animation = &"In Shell"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 7)
