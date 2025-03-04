@@ -89,8 +89,8 @@ position = Vector2(537, 761)
 inertia = 39.81
 
 [node name="Platform" parent="LV1/Planet" instance=ExtResource("9_xr5fp")]
-position = Vector2(-111, -526)
-rotation = -0.15708
+position = Vector2(-112, -525)
+rotation = -0.139626
 
 [node name="JerumyHome" type="Sprite2D" parent="LV1/Planet"]
 position = Vector2(2, -529)
