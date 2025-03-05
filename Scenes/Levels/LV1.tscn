@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dc5ch21ml1dpl"]
+[gd_scene load_steps=18 format=3 uid="uid://dc5ch21ml1dpl"]
 
 [ext_resource type="Script" path="res://Scripts/Home.gd" id="1_1unq7"]
 [ext_resource type="Texture2D" uid="uid://3ooxr3q6m3iq" path="res://Graphics/backgroundTile.png" id="1_42gtg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/GoodGuys/player.tscn" id="3_g7sy7"]
 [ext_resource type="PackedScene" uid="uid://domjeaeiybifl" path="res://Scenes/planet.tscn" id="3_oi4x4"]
 [ext_resource type="Texture2D" uid="uid://ulbpqnu078e" path="res://Graphics/Ship.png" id="5_vpsyn"]
+[ext_resource type="PackedScene" uid="uid://2v4eda5xsm30" path="res://Scenes/Enemies/Helix.tscn" id="7_o11pf"]
 [ext_resource type="PackedScene" uid="uid://bv43ilgetnxsx" path="res://Scenes/scene_transition.tscn" id="9_87cil"]
 [ext_resource type="PackedScene" uid="uid://ceqync4fovyct" path="res://Scenes/platform.tscn" id="9_xr5fp"]
 
@@ -92,6 +93,11 @@ inertia = 39.81
 position = Vector2(-112, -525)
 rotation = -0.139626
 
+[node name="Helix" parent="LV1/Planet" node_paths=PackedStringArray("PLANET") instance=ExtResource("7_o11pf")]
+position = Vector2(-251, -451)
+rotation = -0.499164
+PLANET = NodePath("..")
+
 [node name="JerumyHome" type="Sprite2D" parent="LV1/Planet"]
 position = Vector2(2, -529)
 texture = ExtResource("1_pw6lq")
@@ -108,8 +114,15 @@ animation = &"Empty"
 position = Vector2(0.0460205, 7.62978)
 shape = SubResource("RectangleShape2D_mwo74")
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="LV1/Planet"]
+position = Vector2(-274, -466)
+rotation = -0.499164
+remote_path = NodePath("../Helix")
+update_position = false
+update_scale = false
+
 [node name="Player" parent="LV1" node_paths=PackedStringArray("WORLD") instance=ExtResource("3_g7sy7")]
-position = Vector2(537, 244)
+position = Vector2(534, 240)
 MAX_SPEED = 0.005
 GUNKED_SPEED = 0.003
 ACCELERATION = 0.001
@@ -123,12 +136,6 @@ Player = NodePath("../Player")
 layout_mode = 1
 offset_left = -1.0
 offset_right = -1.0
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-position = Vector2(1, 0)
-update_position = false
-update_rotation = false
-update_scale = false
 
 [connection signal="body_entered" from="LV1/Planet/Ship/Area2D" to="LV1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="LV1/Planet/Ship/Area2D" to="LV1" method="_on_area_2d_body_exited"]
