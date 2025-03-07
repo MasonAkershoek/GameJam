@@ -4,14 +4,13 @@ enum {JUMPING, RUNNING, IDLE, DIE}
 
 var State = IDLE
 
-@export var MAX_SPEED = 0.005
+@export var MAX_SPEED = 200
 @export var GUNKED_SPEED = 200.0
-@export var ACCELERATION: float = 0.0005
+@export var ACCELERATION: float = 5
 @export var JUMP_VELOCITY = -400.0
 @export var HP = 3
 @export var KNOCKBACK = 300
 @export var USE_ACCELERATION = true
-@export var WORLD = RigidBody2D
 
 @onready var text: Label = $Label
 @onready var mySprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -38,12 +37,12 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var dir := Input.get_axis("MoveLeft", "MoveRight")
 	if dir:
-		movment = move_toward(movment, -dir*MAX_SPEED, ACCELERATION)
-		WORLD.rotation += movment 
+		velocity.x = move_toward(velocity.x, dir*MAX_SPEED, ACCELERATION)
+	elif dir && velocity.x == 0:
+		mySprite.play("Push")
 	else:
-		movment = move_toward(movment, 0, ACCELERATION)
-		WORLD.rotation += movment
-	WORLD.Movment = movment
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
+		
 	move_and_slide()
 	
 func _process(delta: float) -> void:

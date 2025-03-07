@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgjr0k2pl8ig0"
-path="res://.godot/imported/box.png-86f22ee5c90b046c2b094bd2a0eef6aa.ctex"
+uid="uid://d0b85mj2evi78"
+path="res://.godot/imported/sopoo.png-2cfc7728e9d665796291b5b8bad5ea0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Enemies/box.png"
-dest_files=["res://.godot/imported/box.png-86f22ee5c90b046c2b094bd2a0eef6aa.ctex"]
+source_file="res://Graphics/sopoo.png"
+dest_files=["res://.godot/imported/sopoo.png-2cfc7728e9d665796291b5b8bad5ea0b.ctex"]
 
 [params]
 

@@ -8,29 +8,21 @@ var random = RandomNumberGenerator.new()
 @export var FLIP_CHANCE = 50
 @export var viewRange = 10
 @onready var mySprite: AnimatedSprite2D = $AnimatedSprite2D
-@export var PLANET = Node2D
-var direction = 0
+@onready var shellTimer: Timer = $"Shell Timer"
+
+var direction = -1
 var State = WALK
 
 func _ready() -> void:
 	random.randomize()
+	mySprite.play("Idle")
 
 func _physics_process(delta: float) -> void:
-	# Get direction towards the planet center
-	var radial_dir = (PLANET.global_position - global_position).normalized()
 
-	# Apply gravity to keep the player pressed against the planet
-	velocity = radial_dir * 980 * delta
-
-	if direction != 0:
-		# Compute a smooth tangent direction
-		var tangent = Vector2(-radial_dir.y, radial_dir.x) * direction  
-		
-		# Use lerp to make the movement smoother
-		velocity = velocity.lerp(tangent * SPEED, delta * 10)
-
-	# Align the player's rotation to the planet's surface
-	rotation = radial_dir.angle() - PI/2
+	if direction != 0 && State != SHELL:
+		velocity.x = SPEED * direction
+	else:
+		velocity.x = 0
 	
 	move_and_slide()
 	
@@ -42,11 +34,20 @@ func flip():
 		mySprite.flip_h = true
 
 func _process(delta: float) -> void:
-	pass
+	if velocity.x != 0 &&  State != SHELL:
+		mySprite.play("Walk")
  
 func _on_timer_timeout() -> void:
-	flip()
+	if State != SHELL:
+		flip()
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		State = SHELL
+		mySprite.play("In Shell")
+		shellTimer.start()
+		
+
+func _on_shell_timer_timeout() -> void:
+	State = WALK
+	mySprite.play("Walk")

@@ -93,10 +93,9 @@ inertia = 39.81
 position = Vector2(-112, -525)
 rotation = -0.139626
 
-[node name="Helix" parent="LV1/Planet" node_paths=PackedStringArray("PLANET") instance=ExtResource("7_o11pf")]
+[node name="Helix" parent="LV1/Planet" instance=ExtResource("7_o11pf")]
 position = Vector2(-251, -451)
 rotation = -0.499164
-PLANET = NodePath("..")
 
 [node name="JerumyHome" type="Sprite2D" parent="LV1/Planet"]
 position = Vector2(2, -529)
@@ -121,12 +120,11 @@ remote_path = NodePath("../Helix")
 update_position = false
 update_scale = false
 
-[node name="Player" parent="LV1" node_paths=PackedStringArray("WORLD") instance=ExtResource("3_g7sy7")]
+[node name="Player" parent="LV1" instance=ExtResource("3_g7sy7")]
 position = Vector2(534, 240)
-MAX_SPEED = 0.005
+MAX_SPEED = 200
 GUNKED_SPEED = 0.003
 ACCELERATION = 0.001
-WORLD = NodePath("../Planet")
 
 [node name="Camera2D" parent="LV1" node_paths=PackedStringArray("Player") instance=ExtResource("1_aghax")]
 position = Vector2(584, 244)
