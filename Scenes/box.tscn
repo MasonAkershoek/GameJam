@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnan51lpuf8a2"]
+[gd_scene load_steps=6 format=3 uid="uid://dnan51lpuf8a2"]
 
 [ext_resource type="Texture2D" uid="uid://cgjr0k2pl8ig0" path="res://Graphics/box.png" id="1_nb8ni"]
 [ext_resource type="Script" path="res://Scripts/box.gd" id="1_w5oxc"]
@@ -7,9 +7,12 @@
 size = Vector2(15, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf2kn"]
-size = Vector2(12, 12)
+size = Vector2(4, 12)
 
-[node name="Box" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px761"]
+size = Vector2(4, 12)
+
+[node name="Box" type="CharacterBody2D"]
 script = ExtResource("1_w5oxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -23,10 +26,20 @@ texture = ExtResource("1_nb8ni")
 wait_time = 2.0
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Left" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_hf2kn")
 
+[node name="Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_px761")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Left" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Left" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Right" to="." method="_on_right_area_entered"]
+[connection signal="area_exited" from="Right" to="." method="_on_right_area_exited"]

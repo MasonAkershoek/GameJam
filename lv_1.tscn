@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dkxr55loh36ci"]
+[gd_scene load_steps=10 format=4 uid="uid://dkxr55loh36ci"]
 
 [ext_resource type="Script" path="res://lv_1.gd" id="1_827hr"]
 [ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/GameCam.tscn" id="1_cpfej"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/GoodGuys/player.tscn" id="2_j7hla"]
 [ext_resource type="PackedScene" uid="uid://do6l1nnaexvcs" path="res://Scenes/Enemies/sock_puppet.tscn" id="5_5dmjw"]
 [ext_resource type="PackedScene" uid="uid://dnan51lpuf8a2" path="res://Scenes/box.tscn" id="6_wcftl"]
-[ext_resource type="PackedScene" uid="uid://b3bwy3p42fcd3" path="res://Scenes/Enemies/Shelix.tscn" id="7_ebava"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3xq3"]
 texture = ExtResource("1_gb74q")
@@ -33,7 +32,7 @@ tile_set = SubResource("TileSet_mr1p1")
 
 [node name="Player" parent="." instance=ExtResource("2_j7hla")]
 position = Vector2(41, 133)
-MAX_SPEED = 200
+JUMP_VELOCITY = -300.0
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(10, 150)
@@ -46,9 +45,6 @@ shape = SubResource("RectangleShape2D_vk7nm")
 position = Vector2(149, 127)
 
 [node name="Box" parent="." instance=ExtResource("6_wcftl")]
-position = Vector2(212, 152)
-
-[node name="Shelix" parent="." instance=ExtResource("7_ebava")]
-position = Vector2(254, 144)
+position = Vector2(201, 152)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -65,17 +65,16 @@ height = 24.0
 size = Vector2(8, 10.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x11o"]
-size = Vector2(20, 19)
+size = Vector2(14, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_en22o"]
-size = Vector2(11, 11)
+size = Vector2(4.5, 11)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eguhu"]
 font_size = 10
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("5_vt3rr")
-MAX_SPEED = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
@@ -101,9 +100,9 @@ position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_7x11o")
 
 [node name="PushBox" type="Area2D" parent="."]
+position = Vector2(-8, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushBox"]
-position = Vector2(13, 6.5)
 shape = SubResource("RectangleShape2D_en22o")
 
 [node name="Label" type="Label" parent="."]

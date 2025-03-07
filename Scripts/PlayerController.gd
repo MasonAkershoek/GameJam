@@ -12,6 +12,7 @@ var State = IDLE
 @export var KNOCKBACK = 300
 @export var USE_ACCELERATION = true
 
+@onready var boxRect: Area2D = $PushBox
 @onready var text: Label = $Label
 @onready var mySprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -56,8 +57,10 @@ func _process(delta: float) -> void:
 		
 	if dir > 0:
 		mySprite.flip_h = false
+		boxRect.position.x = 10
 	elif dir < 0:
 		mySprite.flip_h = true
+		boxRect.position.x = -9
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
