@@ -44,6 +44,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 		
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collision_crate = collision.get_collider()
+		if collision_crate.is_in_group("Moveable") and collision_crate:
+			collision_crate.apply_force(collision.get_normal() * -2000)
+		
 	move_and_slide()
 	
 func _process(delta: float) -> void:

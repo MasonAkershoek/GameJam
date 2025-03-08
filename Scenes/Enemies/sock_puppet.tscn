@@ -87,6 +87,8 @@ animations = [{
 [node name="SockPuppet" type="Node2D"]
 script = ExtResource("1_s2k3x")
 
+[node name="spawn" type="Node2D" parent="."]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_63e8t")
 animation = &"Idle"

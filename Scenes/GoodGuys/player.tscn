@@ -68,7 +68,7 @@ size = Vector2(8, 10.5)
 size = Vector2(14, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_en22o"]
-size = Vector2(4.5, 11)
+size = Vector2(10.25, 11)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eguhu"]
 font_size = 10
@@ -100,7 +100,7 @@ position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_7x11o")
 
 [node name="PushBox" type="Area2D" parent="."]
-position = Vector2(-8, 6)
+position = Vector2(-10, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushBox"]
 shape = SubResource("RectangleShape2D_en22o")
