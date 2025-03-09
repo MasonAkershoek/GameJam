@@ -1,5 +1,7 @@
 extends Node
 
-enum {WORLD1, WORLD2, WORLD3, WORLD4}
+const Worlds = {HOMEWORLD=0, WORLD1=1, WORLD2=2, WORLD3=3, TRAVELMENU=4}
 
-var CurrentWorld = WORLD1
+var CollectedShipParts = 0
+
+var CurrentWorld = Worlds.WORLD1

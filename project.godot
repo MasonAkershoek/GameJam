@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Jam"
-run/main_scene="res://Scenes/Levels/LV1.tscn"
+run/main_scene="res://Scenes/Levels/Home World.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,7 +19,12 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://Scenes/scene_manager.tscn"
 Global="*res://Scripts/Global.gd"
-TextBox="*res://Scenes/text_box.tscn"
+TextBox="*res://Scenes/UI/text_box.tscn"
+SceneTransition="*res://Scenes/scene_transition.tscn"
+
+[display]
+
+window/size/resizable=false
 
 [global_group]
 
@@ -27,6 +32,7 @@ Player=""
 Enemy=""
 Planet=""
 Moveable=""
+ShipPart=""
 
 [input]
 

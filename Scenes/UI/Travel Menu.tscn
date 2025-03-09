@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4f0g6kmwm021"]
+[gd_scene load_steps=18 format=3 uid="uid://b4f0g6kmwm021"]
 
 [ext_resource type="Script" path="res://Scripts/travel_menu.gd" id="1_qb15q"]
-[ext_resource type="Texture2D" uid="uid://c06njip4kdbyo" path="res://world.png" id="1_qcyvn"]
 [ext_resource type="Texture2D" uid="uid://3ooxr3q6m3iq" path="res://Graphics/backgroundTile.png" id="2_2vsle"]
 [ext_resource type="Texture2D" uid="uid://cq88ibe3qq5q8" path="res://Graphics/arrow.png" id="2_866or"]
-[ext_resource type="Texture2D" uid="uid://ulbpqnu078e" path="res://Graphics/Ship.png" id="4_ujggb"]
+[ext_resource type="Texture2D" uid="uid://drhui1rcerok4" path="res://Graphics/Ship.png" id="4_ujggb"]
+[ext_resource type="FontFile" uid="uid://bc4smh6405qjf" path="res://Graphics/Doto-VariableFont_ROND,wght.ttf" id="5_uijty"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pafy0"]
 atlas = ExtResource("4_ujggb")
@@ -59,8 +59,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8srfm"]
-size = Vector2(59.4289, 45.8271)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xh10d"]
+load_path = "res://.godot/imported/world.png-f99131c31fda306b04161be8182aeffb.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_bt8wd"]
+font = ExtResource("5_uijty")
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.294118)
 
 [sub_resource type="Animation" id="Animation_bvg3p"]
 resource_name = "1To2"
@@ -76,6 +81,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1.31951, 1),
 "update": 0,
 "values": [Vector2(296, 320), Vector2(408, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(520, 320), Vector2(650, 320)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Ship:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(740, 320), Vector2(860, 320)]
 }
 
 [sub_resource type="Animation" id="Animation_tqltx"]
@@ -93,9 +122,25 @@ tracks/0/keys = {
 "values": [Vector2(288, 232)]
 }
 
+[sub_resource type="Animation" id="Animation_6n0o5"]
+resource_name = "2To3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nhvan"]
 _data = {
 "1To2": SubResource("Animation_bvg3p"),
+"2To3": SubResource("Animation_6n0o5"),
 "RESET": SubResource("Animation_tqltx")
 }
 
@@ -125,12 +170,6 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_lc1vi")
 animation = &"Pilot"
 
-[node name="Area2D" type="Area2D" parent="Ship"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D"]
-position = Vector2(0.0460205, 7.62978)
-shape = SubResource("RectangleShape2D_8srfm")
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -151,8 +190,23 @@ z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../World 3")
 focus_neighbor_right = NodePath("../World 1")
-texture = ExtResource("1_qcyvn")
+texture = SubResource("CompressedTexture2D_xh10d")
 expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Home"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Home World"
+label_settings = SubResource("LabelSettings_bt8wd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Arrow" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -164,8 +218,23 @@ z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../Home")
 focus_neighbor_right = NodePath("../World 2")
-texture = ExtResource("1_qcyvn")
+texture = SubResource("CompressedTexture2D_xh10d")
 expand_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/World 1"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "World 1"
+label_settings = SubResource("LabelSettings_bt8wd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Arrow2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -177,8 +246,23 @@ z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../World 1")
 focus_neighbor_right = NodePath("../World 3")
-texture = ExtResource("1_qcyvn")
+texture = SubResource("CompressedTexture2D_xh10d")
 expand_mode = 2
+
+[node name="Label3" type="Label" parent="HBoxContainer/World 2"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_right = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "World 2"
+label_settings = SubResource("LabelSettings_bt8wd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Arrow3" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -190,10 +274,27 @@ z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../World 2")
 focus_neighbor_right = NodePath("../Home")
-texture = ExtResource("1_qcyvn")
+texture = SubResource("CompressedTexture2D_xh10d")
 expand_mode = 2
+
+[node name="Label4" type="Label" parent="HBoxContainer/World 3"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_right = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "World 3"
+label_settings = SubResource("LabelSettings_bt8wd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_nhvan")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

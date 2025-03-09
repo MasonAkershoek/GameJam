@@ -1,6 +1,9 @@
 extends Node
 
-@export var Scenes: Dictionary = {}
+var Scenes: Dictionary = {
+	Global.Worlds.TRAVELMENU: "res://Scenes/UI/Travel Menu.tscn",
+	Global.Worlds.HOMEWORLD: "res://Scenes/Levels/Home World.tscn"
+}
 
 func _ready() -> void:
 	pass
@@ -11,7 +14,7 @@ func AddScene(sceneAlias : String, scenePath : String) -> void:
 func RemoveScene(sceneAlias : String) -> void:
 	Scenes.erase(sceneAlias)
 	
-func SwitchScene(sceneAlias : String) -> void:
+func SwitchScene(sceneAlias) -> void:
 	get_tree().change_scene_to_file(Scenes[sceneAlias])
 
 func RestartScene() -> void:

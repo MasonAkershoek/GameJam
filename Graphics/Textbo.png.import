@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c06njip4kdbyo"
-path="res://.godot/imported/world.png-f99131c31fda306b04161be8182aeffb.ctex"
+uid="uid://cfc2trxpfd0fh"
+path="res://.godot/imported/Textbo.png-0f83e776c6ac4505ad4d2c519b3f1dd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world.png"
-dest_files=["res://.godot/imported/world.png-f99131c31fda306b04161be8182aeffb.ctex"]
+source_file="res://Graphics/Textbo.png"
+dest_files=["res://.godot/imported/Textbo.png-0f83e776c6ac4505ad4d2c519b3f1dd5.ctex"]
 
 [params]
 

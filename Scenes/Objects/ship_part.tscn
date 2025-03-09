@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4fna0cs4wjb3"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/ship_part.gd" id="1_8kw28"]
+[ext_resource type="Texture2D" uid="uid://bfhem8rqnfwa7" path="res://Graphics/shipparts.png" id="2_t6fk7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqt23"]
+atlas = ExtResource("2_t6fk7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uag1m"]
+atlas = ExtResource("2_t6fk7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4xr1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqt23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uag1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8b65"]
+size = Vector2(16, 10)
+
+[node name="Ship Part" type="Node2D" groups=["ShipPart"]]
+script = ExtResource("1_8kw28")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g4xr1")
+frame_progress = 0.631853
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_k8b65")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

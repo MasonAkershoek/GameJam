@@ -2,11 +2,15 @@ extends Control
 
 @onready var myAnimation: AnimationPlayer = $AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
+var Animations: Dictionary = {
+	Global.Worlds.WORLD1: "1To2",
+	Global.Worlds.WORLD2: "2To3",
+	Global.Worlds.WORLD3: "3To4" 
+}
+
 func _ready() -> void:
-	myAnimation.play("1To2")
+	myAnimation.play(Animations[Global.CurrentWorld])
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	SceneTransition.StartTransition(Global.CurrentWorld)

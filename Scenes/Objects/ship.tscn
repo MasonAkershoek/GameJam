@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://dt5wv7natxn3a"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/ship.gd" id="1_0afh1"]
+[ext_resource type="Texture2D" uid="uid://drhui1rcerok4" path="res://Graphics/Ship.png" id="1_yuy8s"]
+[ext_resource type="FontFile" uid="uid://bc4smh6405qjf" path="res://Graphics/Doto-VariableFont_ROND,wght.ttf" id="3_ac6qe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imic3"]
+atlas = ExtResource("1_yuy8s")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhc07"]
+atlas = ExtResource("1_yuy8s")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfscd"]
+atlas = ExtResource("1_yuy8s")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_admum"]
+atlas = ExtResource("1_yuy8s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2e8d"]
+atlas = ExtResource("1_yuy8s")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7dxi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imic3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhc07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfscd")
+}],
+"loop": true,
+"name": &"Broke",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_admum")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2e8d")
+}],
+"loop": true,
+"name": &"Pilot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_224tb"]
+size = Vector2(42, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2qce"]
+font = ExtResource("3_ac6qe")
+font_size = 10
+shadow_color = Color(0, 0, 0, 0.215686)
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_0afh1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w7dxi")
+animation = &"Default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_224tb")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = -35.0
+offset_right = 58.0
+offset_bottom = -12.0
+grow_horizontal = 2
+text = "Still Broken"
+label_settings = SubResource("LabelSettings_e2qce")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

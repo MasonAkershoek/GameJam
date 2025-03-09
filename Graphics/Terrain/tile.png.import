@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3srsbcq5pqe6"
-path="res://.godot/imported/platfo.png-e21b3b532bf8216af295454e9a290acf.ctex"
+uid="uid://crkwt3usgmt86"
+path="res://.godot/imported/tile.png-8d095febfea10f38ac4058410ae34a11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/UI/platfo.png"
-dest_files=["res://.godot/imported/platfo.png-e21b3b532bf8216af295454e9a290acf.ctex"]
+source_file="res://Graphics/Terrain/tile.png"
+dest_files=["res://.godot/imported/tile.png-8d095febfea10f38ac4058410ae34a11.ctex"]
 
 [params]
 

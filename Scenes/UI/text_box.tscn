@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://lx8v4m46r6pb"]
+
+[ext_resource type="Texture2D" uid="uid://cfc2trxpfd0fh" path="res://Graphics/Textbo.png" id="1_4qgbg"]
+[ext_resource type="Script" path="res://Scenes/UI/text_box.gd" id="1_png4d"]
+[ext_resource type="FontFile" uid="uid://bc4smh6405qjf" path="res://Graphics/Doto-VariableFont_ROND,wght.ttf" id="3_r4bye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyuhg"]
+atlas = ExtResource("1_4qgbg")
+region = Rect2(768, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqg4q"]
+atlas = ExtResource("1_4qgbg")
+region = Rect2(384, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv03j"]
+atlas = ExtResource("1_4qgbg")
+region = Rect2(576, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucum5"]
+atlas = ExtResource("1_4qgbg")
+region = Rect2(0, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrgob"]
+atlas = ExtResource("1_4qgbg")
+region = Rect2(192, 0, 192, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14vf1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyuhg")
+}],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqg4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv03j")
+}],
+"loop": true,
+"name": &"Gunky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucum5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrgob")
+}],
+"loop": true,
+"name": &"Jerumy",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3qnhf"]
+font = ExtResource("3_r4bye")
+font_size = 30
+shadow_color = Color(0, 0, 0, 0.270588)
+shadow_offset = Vector2(2, 2)
+
+[node name="TextBox" type="CanvasLayer"]
+script = ExtResource("1_png4d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(580, 559)
+scale = Vector2(5.51042, 5.51042)
+sprite_frames = SubResource("SpriteFrames_14vf1")
+animation = &"Jerumy"
+frame_progress = 0.29734
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -163.0
+offset_right = -244.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "
+"
+label_settings = SubResource("LabelSettings_3qnhf")
