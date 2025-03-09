@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://2v4eda5xsm30"]
 
-[ext_resource type="Script" path="res://Scripts/Enemys/enemy.gd" id="1_1i54f"]
+[ext_resource type="Script" uid="uid://d0mbk43i3utl0" path="res://Scripts/Enemys/enemy.gd" id="1_1i54f"]
 [ext_resource type="Texture2D" uid="uid://dbmh20mqhmwxk" path="res://Graphics/Enemies/Helix.png" id="2_3yuu7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg4cy"]

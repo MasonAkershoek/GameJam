@@ -2,7 +2,8 @@ extends Node
 
 var Scenes: Dictionary = {
 	Global.Worlds.TRAVELMENU: "res://Scenes/UI/Travel Menu.tscn",
-	Global.Worlds.HOMEWORLD: "res://Scenes/Levels/Home World.tscn"
+	Global.Worlds.HOMEWORLD: "res://Scenes/Levels/Home World.tscn",
+	Global.Worlds.WORLD1: "res://Scenes/Levels/LV_1.tscn"
 }
 
 func _ready() -> void:

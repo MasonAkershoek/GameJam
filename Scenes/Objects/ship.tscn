@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dt5wv7natxn3a"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/ship.gd" id="1_0afh1"]
+[ext_resource type="Script" uid="uid://diufrhfisq041" path="res://Scripts/Objects/ship.gd" id="1_0afh1"]
 [ext_resource type="Texture2D" uid="uid://drhui1rcerok4" path="res://Graphics/Ship.png" id="1_yuy8s"]
 [ext_resource type="FontFile" uid="uid://bc4smh6405qjf" path="res://Graphics/Doto-VariableFont_ROND,wght.ttf" id="3_ac6qe"]
 

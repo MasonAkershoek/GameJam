@@ -23,13 +23,14 @@ func _process(delta: float) -> void:
 			Broken = false
 			mySprite.play("Default")
 		if Global.CurrentWorld == Global.Worlds.HOMEWORLD:
-			SceneTransition.StartTransition(Global.Worlds.WORLD1)
+			Global.CurrentWorld = Global.Worlds.WORLD1
+			SceneTransition.StartTransition(Global.Worlds.TRAVELMENU)
 		else:
 			if Broken:
 				myTimer.start()
 				myLabel.visible = true
 			else:
-				pass
+				SceneManager.SwitchScene(Global.Worlds.TRAVELMENU)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

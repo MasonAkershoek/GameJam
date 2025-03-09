@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://lx8v4m46r6pb"]
 
 [ext_resource type="Texture2D" uid="uid://cfc2trxpfd0fh" path="res://Graphics/Textbo.png" id="1_4qgbg"]
-[ext_resource type="Script" path="res://Scenes/UI/text_box.gd" id="1_png4d"]
+[ext_resource type="Script" uid="uid://c1djjp04aa67s" path="res://Scripts/text_box.gd" id="1_png4d"]
 [ext_resource type="FontFile" uid="uid://bc4smh6405qjf" path="res://Graphics/Doto-VariableFont_ROND,wght.ttf" id="3_r4bye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyuhg"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://dkxr55loh36ci"]
 
-[ext_resource type="Script" path="res://Scripts/Worlds/lv_1.gd" id="1_wybrx"]
+[ext_resource type="Script" uid="uid://djxcoyo53nw6n" path="res://Scripts/Worlds/Home World.gd" id="1_wybrx"]
 [ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/Objects/GameCam.tscn" id="2_yay4e"]
 [ext_resource type="Texture2D" uid="uid://3ooxr3q6m3iq" path="res://Graphics/backgroundTile.png" id="3_7dfdh"]
 [ext_resource type="Texture2D" uid="uid://crkwt3usgmt86" path="res://Graphics/Terrain/tile.png" id="4_pbg4r"]
