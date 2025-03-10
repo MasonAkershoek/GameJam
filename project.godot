@@ -21,6 +21,7 @@ SceneManager="*res://Scenes/scene_manager.tscn"
 Global="*res://Scripts/Global.gd"
 TextBox="*res://Scenes/UI/text_box.tscn"
 SceneTransition="*res://Scenes/scene_transition.tscn"
+Hud="*res://Scenes/UI/HUD.tscn"
 
 [display]
 

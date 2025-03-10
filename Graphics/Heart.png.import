@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfwh5x02hgii3"
-path="res://.godot/imported/jerumy home.png-b8243315053e44a18ef6a7f2f21b56bb.ctex"
+uid="uid://ckitrpfd1pyul"
+path="res://.godot/imported/Heart.png-da674f9ded1d5f5f914071084aec2e27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/jerumy home.png"
-dest_files=["res://.godot/imported/jerumy home.png-b8243315053e44a18ef6a7f2f21b56bb.ctex"]
+source_file="res://Graphics/Heart.png"
+dest_files=["res://.godot/imported/Heart.png-da674f9ded1d5f5f914071084aec2e27.ctex"]
 
 [params]
 

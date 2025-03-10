@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwx76hjmusnl6"
-path="res://.godot/imported/Dirt.png-fc5d7289c40abda2166345746e7d99ab.ctex"
+uid="uid://du86ygd613ggw"
+path="res://.godot/imported/PigWorld.png-6e331bcb9765e6450dc8ffcb5b367be1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Dirt.png"
-dest_files=["res://.godot/imported/Dirt.png-fc5d7289c40abda2166345746e7d99ab.ctex"]
+source_file="res://Graphics/Planets/PigWorld.png"
+dest_files=["res://.godot/imported/PigWorld.png-6e331bcb9765e6450dc8ffcb5b367be1.ctex"]
 
 [params]
 

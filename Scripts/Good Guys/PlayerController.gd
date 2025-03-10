@@ -7,6 +7,7 @@ var State = IDLE
 @export var MAX_SPEED = 200
 @export var GUNKED_SPEED = 200.0
 @export var ACCELERATION: float = 5
+@export var BREAKFORCE: float = 10
 @export var JUMP_VELOCITY = -400.0
 @export var HP = 3
 @export var KNOCKBACK = 300
@@ -17,6 +18,7 @@ var State = IDLE
 @onready var mySprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var movment = 0
+var isGunky = false
 
 func _ready() -> void:
 	mySprite.play("Idle")
@@ -31,18 +33,18 @@ func _physics_process(delta: float) -> void:
 	# 
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump")  and is_on_floor():
+	if not TextBox.active and Input.is_action_just_pressed("Jump")  and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var dir := Input.get_axis("MoveLeft", "MoveRight")
-	if dir:
+	if not TextBox.active and dir:
 		velocity.x = move_toward(velocity.x, dir*MAX_SPEED, ACCELERATION)
 	elif dir && velocity.x == 0:
 		mySprite.play("Push")
 	else:
-		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
+		velocity.x = move_toward(velocity.x, 0, BREAKFORCE)
 		
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -56,7 +58,7 @@ func _process(delta: float) -> void:
 	text.text = str(HP)
 	
 	var dir := Input.get_axis("MoveLeft", "MoveRight")
-	if dir != 0:
+	if not TextBox.active and dir != 0:
 		mySprite.play("Run")
 	else:
 		mySprite.play("Idle")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfhem8rqnfwa7"
-path="res://.godot/imported/shipparts.png-fa13e09075da5bde840cb84cca336b57.ctex"
+uid="uid://dsmbsbmq6agsi"
+path="res://.godot/imported/Glorp.png-3f1348aebc7faf23b280aff088121474.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/shipparts.png"
-dest_files=["res://.godot/imported/shipparts.png-fa13e09075da5bde840cb84cca336b57.ctex"]
+source_file="res://Graphics/Enemies/Glorp.png"
+dest_files=["res://.godot/imported/Glorp.png-3f1348aebc7faf23b280aff088121474.ctex"]
 
 [params]
 

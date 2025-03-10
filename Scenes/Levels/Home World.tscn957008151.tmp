@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/Objects/GameCam.tscn" id="2_yay4e"]
 [ext_resource type="Texture2D" uid="uid://3ooxr3q6m3iq" path="res://Graphics/backgroundTile.png" id="3_7dfdh"]
 [ext_resource type="Texture2D" uid="uid://crkwt3usgmt86" path="res://Graphics/Terrain/tile.png" id="4_pbg4r"]
-[ext_resource type="Texture2D" uid="uid://bfwh5x02hgii3" path="res://Graphics/Objects/jerumy home.png" id="5_irq8l"]
+[ext_resource type="Texture2D" uid="uid://bfwh5x02hgii3" path="res://Graphics/jerumy home.png" id="5_irq8l"]
 [ext_resource type="PackedScene" uid="uid://dt5wv7natxn3a" path="res://Scenes/Objects/ship.tscn" id="6_2a2v0"]
 [ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/GoodGuys/player.tscn" id="7_h1kww"]
 
@@ -42,8 +42,6 @@ size = Vector2(20, 128)
 
 [node name="LV1" type="Node2D"]
 script = ExtResource("1_wybrx")
-LeftSpawn = 29
-RightSpawn = 1120
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("2_yay4e")]
 position = Vector2(575, 142)

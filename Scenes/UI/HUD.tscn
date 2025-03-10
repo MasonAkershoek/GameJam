@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://csf6sa0yny7rs"]
+
+[ext_resource type="Script" uid="uid://cn0sqw5gkp3e8" path="res://Scripts/hud.gd" id="1_4bm6u"]
+[ext_resource type="Texture2D" uid="uid://dhnden1ck8t1v" path="res://Graphics/Jer.png" id="1_qc5w2"]
+[ext_resource type="FontFile" uid="uid://bc4smh6405qjf" path="res://Graphics/Doto-VariableFont_ROND,wght.ttf" id="2_xaom8"]
+[ext_resource type="Texture2D" uid="uid://ckitrpfd1pyul" path="res://Graphics/Heart.png" id="3_xaom8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bm6u"]
+atlas = ExtResource("1_qc5w2")
+region = Rect2(0, 0, 38, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykvyr"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Gunky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bm6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lelo4"]
+font = ExtResource("2_xaom8")
+font_size = 30
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.160784)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_4bm6u")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(70.0625, 59)
+scale = Vector2(3.6875, 3.6875)
+sprite_frames = SubResource("SpriteFrames_ykvyr")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 145.0
+offset_right = 372.0
+offset_bottom = 90.0
+text = "Jerumy"
+label_settings = SubResource("LabelSettings_lelo4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 37.0
+offset_right = 275.0
+offset_bottom = 77.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xaom8")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xaom8")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xaom8")
+expand_mode = 2

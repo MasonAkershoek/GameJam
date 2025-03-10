@@ -3,14 +3,17 @@ extends Node2D
 @export var LeftSpawn = 0
 @export var RightSpawn = 0
 
-@onready var Player: CharacterBody2D = $Player
+@onready var Player = $Player
 
 func _ready() -> void:
-	TextBox.addText("Welcome to my home world!")
-	TextBox.addText("I better hop in my ship.")
+	Hud.show()
 	Hud.start(Player)
-	#SceneTransition.StartTransition("TravelMenu")
+	TextBox.addText("Shoot looks like my shit crash landed!!")
+	TextBox.addText("I better look around and try to find the missing parts")
+	
+func _process(delta: float) -> void:
 	pass
+	
 
 
 func _on_right_end_body_entered(body: Node2D) -> void:

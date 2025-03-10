@@ -9,6 +9,7 @@ var Animations: Dictionary = {
 }
 
 func _ready() -> void:
+	Hud.hide()
 	myAnimation.play(Animations[Global.CurrentWorld])
 
 

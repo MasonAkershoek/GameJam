@@ -3,6 +3,7 @@ extends Node2D
 @onready var myLabel: Label = $Label
 @onready var myTimer: Timer = $Timer
 @onready var mySprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var Player: CharacterBody2D
 
 var PlayerOver = false
 
@@ -25,12 +26,18 @@ func _process(delta: float) -> void:
 		if Global.CurrentWorld == Global.Worlds.HOMEWORLD:
 			Global.CurrentWorld = Global.Worlds.WORLD1
 			SceneTransition.StartTransition(Global.Worlds.TRAVELMENU)
+			mySprite.play("Pilot")
+			Player.queue_free()
+			Hud.hide()
 		else:
 			if Broken:
 				myTimer.start()
 				myLabel.visible = true
 			else:
 				SceneManager.SwitchScene(Global.Worlds.TRAVELMENU)
+				Hud.hide()
+				Player.queue_free()
+				mySprite.play("Pilot")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
