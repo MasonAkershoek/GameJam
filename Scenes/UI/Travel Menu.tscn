@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4f0g6kmwm021"]
+[gd_scene load_steps=21 format=3 uid="uid://b4f0g6kmwm021"]
 
 [ext_resource type="Script" uid="uid://cye5gt2y6meii" path="res://Scripts/travel_menu.gd" id="1_qb15q"]
 [ext_resource type="Texture2D" uid="uid://3ooxr3q6m3iq" path="res://Graphics/backgroundTile.png" id="2_2vsle"]
 [ext_resource type="Texture2D" uid="uid://cq88ibe3qq5q8" path="res://Graphics/arrow.png" id="2_866or"]
+[ext_resource type="Texture2D" uid="uid://cftxkyuquupdc" path="res://Graphics/Planets/HomeWorld.png" id="4_hpu64"]
 [ext_resource type="Texture2D" uid="uid://drhui1rcerok4" path="res://Graphics/Objects/Ship.png" id="4_ujggb"]
 [ext_resource type="FontFile" uid="uid://bc4smh6405qjf" path="res://Graphics/Doto-VariableFont_ROND,wght.ttf" id="5_uijty"]
 [ext_resource type="Texture2D" uid="uid://bmypg8qrn6obh" path="res://Graphics/Planets/SnailWorld.png" id="6_7svg4"]
@@ -61,12 +62,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xh10d"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_bt8wd"]
 font = ExtResource("5_uijty")
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.294118)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xh10d"]
 
 [sub_resource type="Animation" id="Animation_bvg3p"]
 resource_name = "1To2"
@@ -191,7 +192,7 @@ z_index = 2
 layout_mode = 2
 focus_neighbor_left = NodePath("../World 3")
 focus_neighbor_right = NodePath("../World 1")
-texture = SubResource("CompressedTexture2D_xh10d")
+texture = ExtResource("4_hpu64")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/Home"]
