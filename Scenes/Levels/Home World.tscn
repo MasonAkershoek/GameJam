@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dkxr55loh36ci"]
+[gd_scene load_steps=13 format=4 uid="uid://dkxr55loh36ci"]
 
 [ext_resource type="Script" uid="uid://djxcoyo53nw6n" path="res://Scripts/Worlds/Home World.gd" id="1_wybrx"]
 [ext_resource type="PackedScene" uid="uid://43pd1826sss4" path="res://Scenes/Objects/GameCam.tscn" id="2_yay4e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bfwh5x02hgii3" path="res://Graphics/Objects/jerumy home.png" id="5_irq8l"]
 [ext_resource type="PackedScene" uid="uid://dt5wv7natxn3a" path="res://Scenes/Objects/ship.tscn" id="6_2a2v0"]
 [ext_resource type="PackedScene" uid="uid://dx3dhdfcswkq" path="res://Scenes/GoodGuys/player.tscn" id="7_h1kww"]
+[ext_resource type="PackedScene" uid="uid://b3bwy3p42fcd3" path="res://Scenes/Enemies/Shelix.tscn" id="8_xpx73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvtdv"]
 texture = ExtResource("4_pbg4r")
@@ -93,6 +94,9 @@ shape = SubResource("RectangleShape2D_vk7nm")
 [node name="Player" parent="." instance=ExtResource("7_h1kww")]
 position = Vector2(570, 144)
 ACCELERATION = 10.0
+
+[node name="Shelix" parent="." instance=ExtResource("8_xpx73")]
+position = Vector2(500, 144)
 
 [connection signal="body_entered" from="RightEnd" to="." method="_on_right_end_body_entered"]
 [connection signal="body_entered" from="LeftEnd" to="." method="_on_left_end_body_entered"]
